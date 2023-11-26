@@ -1,6 +1,6 @@
 load("data.codon_nbs")
 load("iterate_vals_base")
-source('/Users/keren/Dropbox/mtDNA_tree_Build_17/debug_functions2_base_thesis.R')
+source('mtDNA_functions.R')
 
 get_nb_model = function(codon_position,codon){
   tmp = get_data(iterate_vals,j = codon_position, q = codon)
