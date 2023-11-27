@@ -316,29 +316,11 @@ negative.binomial=function (theta = stop("'theta' must be specified"), link = "l
   }
   
   # get_data = function(plc,selected_input,curr_details,iterate_vals){
-  get_data = function(iterate_vals,j,q){
-    # curr_row = details[plc,]
-    # i = as.numeric(curr_row["output"]); j = as.numeric(curr_row["codon.pos"]); 
-    # k = as.numeric(curr_row["backwords"]);  
-    # p = as.numeric(curr_row["CG_position"]); q = as.numeric(curr_row["codon_backwords"]);
-    # w = as.numeric(curr_row["amino_acid_backwords"]); 
-    # t = as.numeric(curr_row["R.neighbor_backwords"]); u = as.numeric(curr_row["L.neighbor_backwords"]); 
-    # m = as.numeric(curr_row["regions"]); n = as.numeric(curr_row["regions2"])
-    # a = as.numeric(curr_row["base_backwords"])
-    # if (is.na(w)){w=23}
-    # if (is.na(q)){q=66}
-    # if (is.na(t)){t=6}
-    # if (is.na(u)){u=6}
-    # if (is.na(j)){j=5}
-    # if (is.na(k)){k=4}
-    # if (is.na(p)){p=5}
-    # if (is.na(t)){t=6}
-    # if (is.na(u)){u=6}
-    # if (is.na(m)){m=15}
-    # if (is.na(n)){n=5}
-    # if (is.na(a)){a=6}
-    
-    i=5; k=3; p=5; w=23; t=5; u=5; m=15; n=5; a=6
+  get_data = function(iterate_vals, codon_position, codon, output_num, directionality,CG_pos,
+                      amino_acid, right_neighbour,left_neighbour, genes, aggregated_genes,
+                      nucleotide){
+    j = codon_position; q = codon; i = output_num; k = directionality; p = CG_pos; w = amino_acid
+    t = right_neighbour; u = left_neighbour; m = genes; n = aggregated_genes; a = nucleotide
     selected_input = matrix(0,1,length(input_iterate))
     colnames(selected_input) = c(input_iterate)
     

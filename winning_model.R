@@ -1,9 +1,12 @@
 load("data.codon_nbs")
 load("iterate_vals_base")
-source('mtDNA_functions.R')
+source("mtDNA_functions.R")
 
-get_nb_model = function(codon_position,codon){
-  tmp = get_data(iterate_vals,j = codon_position, q = codon)
+get_nb_model = function(iterate_vals, codon_position, codon, output_num, directionality,
+                        CG_pos, amino_acid, right_neighbour, left_neighbour, genes, 
+                        aggregated_genes, nucleotide){
+  tmp = get_data(iterate_vals, codon_position, codon, output_num, directionality,CG_pos, amino_acid,
+                 right_neighbour,left_neighbour, genes, aggregated_genes,nucleotide)
   curr_data = tmp[[1]]; 
   if (is.na(curr_data)==FALSE){
     tmp = prepare_data_rm_cols(curr_data)
@@ -46,7 +49,10 @@ for (j in 1:3){
   for(q in 1:64){
     count = count + 1
     print(count)
-    model.nb[[count]] = get_nb_model(codon_position = j,codon = q)
+    model.nb[[count]] = get_nb_model(iterate_vals, codon_position = j, codon = q, output_num = i, 
+                                     directionality = k, CG_pos = p, amino_acid = w, 
+                                     right_neighbour = t, left_neighbour = u, genes = m,
+                                     aggregated_genes = n, nucleotide = a)
   }
 }
 
